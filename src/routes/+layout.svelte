@@ -1,4 +1,6 @@
 <script>
+  export const prerender = true;//OBLIGATOIRE POUR SSG
+
   import "../style/focus.css";
   import "../style/reset.css";
   import "../style/tailwind.css";

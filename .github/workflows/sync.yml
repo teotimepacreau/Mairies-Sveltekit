@@ -1,0 +1,16 @@
+name: Auto Sync
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' 
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Pull Changes
+      run: git pull origin decap  # Replace with your branch name

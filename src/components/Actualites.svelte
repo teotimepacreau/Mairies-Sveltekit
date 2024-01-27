@@ -1,3 +1,6 @@
+<script>
+  import JO from '../articles/JO.md'
+</script>
 <section class="mt-10">
     <h2 class="text-xl font-bold">Actualités</h2>
     <div class="article-list">
@@ -17,7 +20,8 @@
         </div>
       </article>
     </div>
-  </section>
+    <JO />
+</section>
   
   <style>
     img {

@@ -48,8 +48,10 @@
     <span class="truncate | shrink grow basis-6">Rechercher</span>
     <i class="search-icon"></i>
   </button>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
   <dialog
-    on:click|preventDefault={closeDialogWhenClickOutsideTheBox}
+    on:click|preventDefault={closeDialogWhenClickOutsideTheBox} on:keyup|preventDefault={closeDialogWhenClickOutsideTheBox}
     id="search-dialog"
     class="px-4 py-2"
   >

@@ -55,7 +55,12 @@ export default defineConfig({
           {
             type: "image",
             name: "image",
-            label: "Image"
+            label: "Image",
+          },
+          {
+            type: "string",
+            name: "imagealt",
+            label: "Description de l'image"
           },
           {
             type: "rich-text",

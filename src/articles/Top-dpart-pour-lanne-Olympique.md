@@ -5,6 +5,7 @@ desc: >-
   pratique sportive dans le cadre des JO
 date: 2024-01-28T23:00:00.000Z
 image: /olympic.jpg
+imagealt: Des coureuses de 100m sur une piste d'athlétisme
 ---
 
 Le stade local, autrefois le lieu de rencontres amicales et de compétitions passionnées, s'apprête à accueillir des athlètes exceptionnels venus des quatre coins du monde. La magie des Jeux Olympiques est une source d'inspiration pour chacun d'entre nous, transcendant les frontières et unissant les nations dans un esprit de compétition saine et de camaraderie.

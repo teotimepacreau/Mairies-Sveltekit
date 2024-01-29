@@ -21,7 +21,7 @@
     {#each arrayOfArticles as article}
       <article class=" border-2 rounded-md | mt-4">
         <div class="p-4 self-center flex-1 | flex flex-col">
-          <time class="text-xs text-slate-600">{article.node.date}</time>
+          <time class="text-xs text-slate-600">{new Date(article.node.date).toLocaleDateString("fr")}</time>
           <h3 class="mt-2 |text-lg font-semibold">
             {article.node.titre}
           </h3>
@@ -30,7 +30,7 @@
           </p>
         </div>
         <div class="img-container flex-1" style="width: inherit;">
-          <img src="/olympic.jpg" alt="" />
+          <img src="{article.node.image}" alt="{article.node.imagealt}" />
         </div>
       </article>
     {/each}

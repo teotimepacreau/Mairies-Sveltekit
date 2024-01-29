@@ -1,43 +1,56 @@
 <script>
-  import JO from '../articles/JO.md'
+  import { client } from "../../tina/__generated__/client";
+
+  let arrayOfArticles = []
+
+  $: (async () => {//obligé d'utiliser une reactive value ($:) car comme on utilise await ça permet à ce que la data qui arrive à la fin de l'execution de la fonction raffraichisse let arrayOfArticles
+    const result = await client.queries.articleConnection();
+
+    const {
+      data: {
+        articleConnection: { edges },
+      },
+    } = result;
+    arrayOfArticles = edges;
+  })();
 </script>
+
 <section class="mt-10">
-    <h2 class="text-xl font-bold">Actualités</h2>
-    <div class="article-list">
+  <h2 class="text-xl font-bold">Actualités</h2>
+  <div class="article-list">
+    {#each arrayOfArticles as article}
       <article class=" border-2 rounded-md | mt-4">
         <div class="p-4 self-center flex-1 | flex flex-col">
-          <time class="text-xs text-slate-600">2 Janvier 2024</time>
+          <time class="text-xs text-slate-600">{article.node.date}</time>
           <h3 class="mt-2 |text-lg font-semibold">
-            Top départ pour l'année Olympique
+            {article.node.titre}
           </h3>
           <p class="mt-1 | text-xs truncate | shrink">
-            Retrouvez tous les évènements organisés par la commune
-            pour.accompagner la pratique sportive dans le cadre des JO
+            {article.node.desc}
           </p>
         </div>
         <div class="img-container flex-1" style="width: inherit;">
           <img src="/olympic.jpg" alt="" />
         </div>
       </article>
-    </div>
-    <JO />
+    {/each}
+  </div>
 </section>
-  
-  <style>
-    img {
-      object-fit: cover;
-      max-height: 20dvh;
-      width: 100%;
-    }
-    article {
-      display: flex;
-    }
-    article > * {
-      flex: 1;
-      flex-basis: 50%;
-    }
-    article > :first-child{
-  max-width: 50%;
-    }
-  </style>
-  
+
+<style>
+  img {
+    object-fit: cover;
+    max-height: 20dvh;
+    width: 100%;
+  }
+  article {
+    display: flex;
+  }
+  article > * {
+    flex: 1;
+    flex-basis: 50%;
+  }
+  article > :first-child {
+    max-width: 50%;
+  }
+</style>

@@ -10,6 +10,9 @@ const mdsvexOptions = {
 
 const config = {
 	extensions: ['.svelte', '.md'],//permet de traiter les Markdown files en tant que Components
+	alias: {
+		$tina: "./tina"
+	},
 	onwarn: (warning, handler) => {
         if (warning.code.startsWith('a11y-')) return;
         handler(warning);

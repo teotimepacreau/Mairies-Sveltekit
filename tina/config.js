@@ -5,7 +5,7 @@ const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
-  "main";
+  "tina";
 
 export default defineConfig({
   branch,
@@ -51,6 +51,11 @@ export default defineConfig({
             name: 'date',
             label: 'Date',
             required: true,
+          },
+          {
+            type: "image",
+            name: "image",
+            label: "Image"
           },
           {
             type: "rich-text",

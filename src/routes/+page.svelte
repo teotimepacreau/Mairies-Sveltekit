@@ -1,6 +1,6 @@
 <script>
     import Nav from "../components/Nav.svelte";
-    import Actualites from "../components/Actualites.svelte";
+    import ItemActu from "../components/ItemActu.svelte";
 </script>
 
 <div class="content-wrapper | px-8 pb-8 | mx-auto | flex">
@@ -15,7 +15,7 @@
         
         <hr class="mt-10">
 
-        <Actualites />
+        <ItemActu />
     </main>
 </main>
 </div>

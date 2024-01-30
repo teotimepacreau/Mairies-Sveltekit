@@ -10,7 +10,6 @@
   onMount(() => {
     //onMount car sinon la sélection run avant que le composant soit rendu
     dialog = document.querySelector("#search-dialog");
-    console.log(dialog);
   });
 
   const openDialog = () => {
@@ -31,13 +30,15 @@
     style="max-height: inherit;"
   >
     <div class="header-img-container | shrink-0" style="max-height: inherit;">
-      <img
-        class="max-h-10"
-        width="36.36"
-        height="39.99"
-        src="/vue.svg"
-        alt="Blason de la commune de Vue"
-      />
+      <a href="/">
+        <img
+          class="max-h-10"
+          width="36.36"
+          height="39.99"
+          src="/vue.svg"
+          alt="Blason de la commune de Vue"
+        />
+      </a>
     </div>
     <span class="text-xl" style="min-width: min-content;">Commune de Vue</span>
   </div>
@@ -51,7 +52,8 @@
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <dialog
-    on:click|preventDefault={closeDialogWhenClickOutsideTheBox} on:keyup|preventDefault={closeDialogWhenClickOutsideTheBox}
+    on:click|preventDefault={closeDialogWhenClickOutsideTheBox}
+    on:keyup|preventDefault={closeDialogWhenClickOutsideTheBox}
     id="search-dialog"
     class="px-4 py-2"
   >

@@ -22,9 +22,9 @@
       <article class=" border-2 rounded-md | mt-4">
         <div class="p-4 self-center flex-1 | flex flex-col">
           <time class="text-xs text-slate-600">{new Date(article.node.date).toLocaleDateString("fr")}</time>
-          <h3 class="mt-2 |text-lg font-semibold">
+          <a href="/actualites/{article.node._sys.filename}" class="mt-2 |text-lg font-semibold">
             {article.node.titre}
-          </h3>
+          </a>
           <p class="mt-1 | text-xs truncate | shrink">
             {article.node.desc}
           </p>

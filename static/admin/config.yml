@@ -1,13 +1,8 @@
+local_backend: true
+
 backend:
   name: git-gateway
-  repo: teotimepacreau/Mairies-Sveltekit
-  branch: decapv3  # Branch to update (optional; defaults to master)
 
-display_url: http://localhost:5173
-site_url: http://localhost:5173/
-
-# This line should *not* be indented
-publish_mode: editorial_workflow
 
 # These lines should *not* be indented
 media_folder: "static/uploads"  # Media files will be stored in the repo under static/uploads

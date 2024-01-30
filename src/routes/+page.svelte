@@ -1,6 +1,6 @@
 <script>
-    import Nav from "../components/Nav.svelte";
-    import ItemActu from "../components/ItemActu.svelte";
+    import Nav from "@components/Nav.svelte";
+    import ItemActu from "@components/ItemActu.svelte";
 </script>
 
 <div class="content-wrapper | px-8 pb-8 | mx-auto | flex">

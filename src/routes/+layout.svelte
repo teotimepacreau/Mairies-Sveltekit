@@ -1,7 +1,7 @@
 <script>
-  import "../style/focus.css";
-  import "../style/reset.css";
-  import "../style/tailwind.css";
+  import "@style/focus.css";
+  import "@style/reset.css";
+  import "@style/tailwind.css";
 
   import { onMount } from "svelte";
 

@@ -20,7 +20,9 @@ const config = {
 	kit: {
 		alias: {
 			'@articles': path.resolve('./src/articles'),
-			'@tina': path.resolve('./tina')
+			'@tina': path.resolve('./tina'),
+			'@components': path.resolve('./src/components'),
+			'@style': path.resolve('./src/style')
 		},
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.

@@ -1,10 +1,12 @@
 <script>
     import Nav from "@components/Nav.svelte";
     import ItemActu from "@components/ItemActu.svelte";
+    import ViewTransition from '@components/Navigation.svelte'
 </script>
 
-<div class="content-wrapper | px-8 pb-8 | mx-auto | flex">
+
 <Nav />
+<ViewTransition />
 <main style="width: inherit;">
     <header>
         <img class="hero-img" src="header-commune-2.jpg" alt="">
@@ -18,12 +20,9 @@
         <ItemActu />
     </main>
 </main>
-</div>
 
 <style>
-    .content-wrapper {
-            width: 70dvw;
-        }
+    
     .hero-img{
         object-fit: cover;
         object-view-box: inset(30% 0% 0% 0%);

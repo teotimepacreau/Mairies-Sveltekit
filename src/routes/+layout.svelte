@@ -5,6 +5,8 @@
 
   import { onMount } from "svelte";
 
+  import Navigation from '@components/Navigation.svelte'
+
   let dialog;
 
   onMount(() => {
@@ -23,6 +25,8 @@
     }
   };
 </script>
+
+<Navigation />
 
 <header class="px-8 py-4 border-b-2 | flex justify-between gap-2">
   <div
@@ -58,7 +62,7 @@
     class="px-4 py-2"
   >
     <search class="flex items-center gap-4">
-      <i class="search-icon | shrink-0"></i>
+      <icon class="search-icon | shrink-0"></icon>
       <form>
         <label class="sr-only" for="search">Rechercher</label>
         <input
@@ -73,9 +77,19 @@
   </dialog>
 </header>
 
+<div class="content-wrapper | px-8 pb-8 | mx-auto | flex">
+
 <slot />
 
+</div>
+
 <style>
+  .content-wrapper {
+        max-width: 70dvw;
+        }
+  .content-wrapper > * {
+    flex: 1;
+  }
   .search-icon {
     background-color: black;
     display: inline-block;

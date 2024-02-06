@@ -22,7 +22,8 @@ const config = {
 			'@articles': path.resolve('./src/articles'),
 			'@tina': path.resolve('./tina'),
 			'@components': path.resolve('./src/components'),
-			'@style': path.resolve('./src/style')
+			'@style': path.resolve('./src/style'),
+			'@static': path.resolve('./static')
 		},
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.

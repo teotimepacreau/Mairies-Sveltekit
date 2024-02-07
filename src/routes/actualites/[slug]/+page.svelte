@@ -1,6 +1,5 @@
 <script>
   export let data; //attraper le data passé par +page.server.js
-  console.log(data);
 
   import Nav from "@components/Nav.svelte";
   import Breadcrumb from "@components/Breadcrumb.svelte";
@@ -20,7 +19,7 @@
     <!-- Title -->
     <header>
       <div id="hero-img-container">
-        <img id="hero-img" src={data.meta.image} alt="" />
+        <img id="hero-img" src={data.meta.image} alt={data.meta.desc} />
       </div>
       <h1 class="text-4xl font-bold tracking-tight | pt-8">{data.meta.titre}</h1>
       <time class="block | pt-4 | text-slate-500 text-sm">Publié le {new Date(data.meta.date).toLocaleDateString("fr")}</time>

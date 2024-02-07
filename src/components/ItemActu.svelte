@@ -15,8 +15,6 @@
   })();
 </script>
 
-<section class="mt-10">
-  <h2 class="text-xl font-bold">Actualités</h2>
   <div class="article-list">
     {#each arrayOfArticles as article}
       <article class=" border-2 rounded-md | mt-4">
@@ -35,7 +33,6 @@
       </article>
     {/each}
   </div>
-</section>
 
 <style>
   img {

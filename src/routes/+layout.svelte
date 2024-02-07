@@ -56,7 +56,11 @@
         />
       </a>
     </div>
-    <span class="text-xl" style="min-width: min-content;">Commune de Vue</span>
+    <a href="/"
+      ><span class="text-xl" style="min-width: min-content;"
+        >Commune de Vue</span
+      ></a
+    >
   </div>
   <button
     on:click={() => openDialog()}
@@ -117,5 +121,11 @@
     width: 40dvw;
     box-shadow: 1px 1px 1px 0px var(--shadow);
     @apply border-2 border-slate-400 rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+
+  :global(a:hover) {
+    @apply text-blue-900;
+    transition: 0.2s ease-out;
+    text-decoration: unset;
   }
 </style>

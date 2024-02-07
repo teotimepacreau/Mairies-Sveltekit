@@ -1,17 +1,20 @@
 <script>
-    import Nav from "@components/Nav.svelte";
+  import Nav from "@components/Nav.svelte";
 
-    import ItemActu from "@components/ItemActu.svelte";
+  import ItemActu from "@components/ItemActu.svelte";
 
-    import Breadcrumb from '@components/Breadcrumb.svelte'
+  import Breadcrumb from "@components/Breadcrumb.svelte";
 </script>
 
 <svelte:head>
-    <title>Actualités</title>
+  <title>Actualités</title>
 </svelte:head>
 
 <Nav />
-<main id="blog-post-container" class="p-8 | w-full">
-<Breadcrumb />
-<ItemActu />
+<main class="p-8 | w-full">
+  <Breadcrumb />
+  <section class="mt-10">
+    <h1 class="text-4xl font-bold">Actualités</h1>
+    <ItemActu />
+  </section>
 </main>

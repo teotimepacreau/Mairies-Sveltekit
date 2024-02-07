@@ -1,12 +1,10 @@
 <script>
     import Nav from "@components/Nav.svelte";
     import ItemActu from "@components/ItemActu.svelte";
-    import ViewTransition from '@components/Navigation.svelte'
 </script>
 
 
 <Nav />
-<ViewTransition />
 <main style="width: inherit;">
     <header>
         <img class="hero-img" src="header-commune-2.jpg" alt="">

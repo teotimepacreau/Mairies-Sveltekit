@@ -4,7 +4,6 @@
 
   import Nav from "@components/Nav.svelte";
   import Breadcrumb from "@components/Breadcrumb.svelte";
-  import ViewTransition from '@components/Navigation.svelte'
 </script>
 
 <svelte:head>
@@ -16,7 +15,6 @@
 
 <Nav />
 <main id="blog-post-container" class="p-8 | w-full">
-    <ViewTransition />
   <Breadcrumb pageTitle={data.meta.titre} />
   <article class="pt-8">
     <!-- Title -->

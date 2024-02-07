@@ -1,11 +1,25 @@
 <script>
+  // VIEW TRANSITIONS START
+  import { onNavigate } from "$app/navigation";
+
+  onNavigate((navigation) => {
+    if (!document.startViewTransition) return;
+
+    return new Promise((resolve) => {
+      document.startViewTransition(async () => {
+        resolve();
+        await navigation.complete;
+      });
+    });
+  });
+
+  // VIEW TRANSITIONS END
+
   import "@style/focus.css";
   import "@style/reset.css";
   import "@style/tailwind.css";
 
   import { onMount } from "svelte";
-
-  import Navigation from '@components/Navigation.svelte'
 
   let dialog;
 
@@ -25,8 +39,6 @@
     }
   };
 </script>
-
-<Navigation />
 
 <header class="px-8 py-4 border-b-2 | flex justify-between gap-2">
   <div
@@ -78,15 +90,13 @@
 </header>
 
 <div class="content-wrapper | px-8 pb-8 | mx-auto | flex">
-
-<slot />
-
+  <slot />
 </div>
 
 <style>
   .content-wrapper {
-        max-width: 70dvw;
-        }
+    max-width: 70dvw;
+  }
   .content-wrapper > * {
     flex: 1;
   }

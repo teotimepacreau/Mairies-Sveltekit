@@ -11,3 +11,4 @@ vite.config.ts.timestamp-*
 
 node_modules
 .env
+node_modules

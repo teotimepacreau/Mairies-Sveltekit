@@ -1,6 +1,7 @@
 <script>
-  export let data; //attraper le data passé par +page.server.js
+  
 
+  export let data; //attraper le data passé par +page.server.js
   import Nav from "@components/Nav.svelte";
   import Breadcrumb from "@components/Breadcrumb.svelte";
 </script>
@@ -15,7 +16,7 @@
 <Nav />
 <main id="blog-post-container" class="p-8 | w-full">
   <Breadcrumb pageTitle={data.meta.titre} />
-  <article class="pt-8">
+  <article data-pagefind-body class="pt-8">
     <!-- Title -->
     <header>
       <div id="hero-img-container">

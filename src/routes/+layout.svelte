@@ -1,6 +1,4 @@
 <script>
-  //A DECOMMENTER POUR SVELTEKIT SSG : export const prerender = true;
-
   // VIEW TRANSITIONS START
   import { onNavigate } from "$app/navigation";
 

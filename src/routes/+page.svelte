@@ -3,6 +3,8 @@
   import ItemActu from "@components/ItemActu.svelte";
 </script>
 
+
+
 <Nav />
 <main style="width: inherit;">
   <header>

@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "tinacms dev -c \"vite dev\"",
 		"build": "tinacms build && vite build",
-		"preview": "vite preview"
+		"preview": "tinacms build && vite preview"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",

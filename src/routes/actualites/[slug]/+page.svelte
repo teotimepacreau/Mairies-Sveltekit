@@ -16,7 +16,7 @@
 <Nav />
 <main id="blog-post-container" class="p-8 | w-full">
   <Breadcrumb pageTitle={data.meta.titre} />
-  <article data-pagefind-body class="pt-8">
+  <article class="pt-8">
     <!-- Title -->
     <header>
       <div id="hero-img-container">

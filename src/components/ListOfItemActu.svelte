@@ -3,21 +3,39 @@
 
   let arrayOfArticles = []
 
-  $: (async () => {//obligé d'utiliser une reactive value ($:) car comme on utilise await ça permet à ce que la data qui arrive à la fin de l'execution de la fonction raffraichisse let arrayOfArticles
+  async function fillArrayOfArticles () {
     const result = await client.queries.articleConnection();
-
+  try {
     const {
       data: {
         articleConnection: { edges },
       },
     } = result;
-    arrayOfArticles = edges;
-  })();
+    let arrayOfArticles = edges;
+    return arrayOfArticles
+
+  }catch(e){
+    console.error(500, 'Could not find articles on the server')
+  }
+  };
+  fillArrayOfArticles()
+
+
+  const orderArticlesByDate = async () => {
+    arrayOfArticles = await fillArrayOfArticles()
+    arrayOfArticles.sort((a,b) => {
+      return new Date(b.node.date) - new Date(a.node.date)
+    })
+  }
+  // Use a reactive statement to trigger the sorting when arrayOfArticles changes
+  $: {
+    orderArticlesByDate();
+  }
 </script>
 
   <div class="article-list">
     {#each arrayOfArticles as article}
-      <article data-pagefind-body class=" border-2 rounded-md | mt-4">
+      <article class=" border-2 rounded-md | mt-4">
         <div class="p-4 self-center flex-1 | flex flex-col">
           <time class="text-xs text-slate-600">{new Date(article.node.date).toLocaleDateString("fr")}</time>
           <a href="/actualites/{article.node._sys.filename}" class="mt-2 |text-lg font-semibold">

@@ -1,6 +1,6 @@
 <script>
   import Nav from "@components/Nav.svelte";
-  import ItemActu from "@components/ItemActu.svelte";
+  import ListOfItemActu from "@components/ListOfItemActu.svelte";
 </script>
 
 
@@ -27,7 +27,7 @@
     <hr class="mt-10" />
     <section class="mt-10">
       <h2 id="actualites-title" class="text-xl font-bold"><a href="/actualites">Actualités</a></h2>
-      <ItemActu />
+      <ListOfItemActu />
     </section>
   </main>
 </main>

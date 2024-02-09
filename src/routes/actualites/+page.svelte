@@ -1,7 +1,7 @@
 <script>
   import Nav from "@components/Nav.svelte";
 
-  import ItemActu from "@components/ItemActu.svelte";
+  import ListOfItemActu from "@components/ListOfItemActu.svelte";
 
   import Breadcrumb from "@components/Breadcrumb.svelte";
 </script>
@@ -15,6 +15,6 @@
   <Breadcrumb />
   <section class="mt-10">
     <h1 class="text-4xl font-bold">Actualités</h1>
-    <ItemActu />
+    <ListOfItemActu />
   </section>
 </main>

@@ -15,7 +15,6 @@
 		"@tinacms/cli": "^1.5.39",
 		"autoprefixer": "^10.4.17",
 		"mdsvex": "^0.11.0",
-		"pagefind": "^1.0.4",
 		"postcss": "^8.4.33",
 		"svelte": "^4.2.7",
 		"tailwindcss": "^3.4.1",
@@ -23,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"pagefind": "^1.0.4",
 		"tinacms": "^1.5.28"
 	}
 }

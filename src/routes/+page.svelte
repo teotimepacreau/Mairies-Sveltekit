@@ -23,7 +23,6 @@
       de la mairie ainsi que les informations essentielles sur l’activité de la
       commune.
     </p>
-
     <hr class="mt-10" />
     <section class="mt-10">
       <h2 id="actualites-title" class="text-xl font-bold"><a href="/actualites">Actualités</a></h2>

@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "tinacms dev -c \"vite dev\"",
 		"build": "tinacms build && vite build",
-		"preview": "tinacms build && vite preview"
+		"preview": "tinacms build && vite preview",
+		"postbuild": "vite build && pagefind --site build --serve"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
@@ -23,6 +24,7 @@
 	"type": "module",
 	"dependencies": {
 		"pagefind": "^1.0.4",
-		"tinacms": "^1.5.28"
+		"tinacms": "^1.5.28",
+		"vite-plugin-pagefind": "^0.0.30"
 	}
 }

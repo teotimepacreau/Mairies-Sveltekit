@@ -12,7 +12,6 @@
       });
     });
   });
-
   // VIEW TRANSITIONS END
 
   import "@style/focus.css";
@@ -21,6 +20,7 @@
 
   import { onMount } from "svelte";
 
+  // SEARCH START
   let dialog;
 
   onMount(() => {
@@ -38,7 +38,24 @@
       dialog.close();
     }
   };
+
+  // PAGEFIND
+  let query = "";
+  const handleSearch = async () => {
+    const pagefind = await import("/pagefind/pagefind.js");
+    console.log(pagefind);
+    const r = await pagefind.search(query);
+    console.log(r);
+    for (const result of r.results) {
+      console.log(await result.data());
+    }
+  };
 </script>
+
+<svelte:head>
+  <link href="/pagefind-ui.css" rel="stylesheet" />
+  <script src="/pagefind-ui.js"></script>
+</svelte:head>
 
 <header class="px-8 py-4 border-b-2 | flex justify-between gap-2">
   <div
@@ -82,6 +99,8 @@
       <form>
         <label class="sr-only" for="search">Rechercher</label>
         <input
+          on:keyup={() => handleSearch()}
+          bind:value={query}
           class="w-full | bg-inherit | outline-none | text-black"
           type="text"
           name="search"

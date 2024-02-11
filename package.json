@@ -6,7 +6,7 @@
 		"dev": "tinacms dev -c \"vite dev\"",
 		"build": "tinacms build && vite build",
 		"preview": "tinacms build && vite preview",
-		"postbuild": "vite build && pagefind --site build --serve"
+		"postbuildtoseepagefind": "vite build && pagefind --site build --serve"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",

@@ -42,18 +42,58 @@
   // PAGEFIND
   let query = "";
   const handleSearch = async () => {
-    const pagefind = await import("/pagefind/pagefind.js");
-    console.log(pagefind);
-    const r = await pagefind.search(query);
-    console.log(r);
-    for (const result of r.results) {
-      console.log(await result.data());
+    const pagefind = await import("/pagefind/pagefind.js"); //appelle l'objet pagefind
+
+    const r = await pagefind.search(query); //tape l'API "search" de Pagefind (on fait remonter la query de l'utilisateur en string)
+
+    console.log(r); //donne un array avec 4 objets parmis lesquels l'objet "results"
+
+    let numberOfResults = r.results.length;
+
+    let resultsContainer = document.querySelector("#results");
+
+    let dialogDrawer = document.createElement("div");
+    dialogDrawer.classList.add("pagefind-ui__drawer");
+    let docFrag = document.createDocumentFragment();
+
+    // NB DE RESULTATS
+    let pagefindMessage = resultsContainer.querySelector(".pagefind-message");
+    if (pagefindMessage) {
+      pagefindMessage.textContent = `${numberOfResults} résultats pour "${query}"`;
+    } else {
+      
+      pagefindMessage = document.createElement("p");
+      pagefindMessage.classList.add("pagefind-message");
+      pagefindMessage.textContent = `${numberOfResults} résultats pour "${query}"`;
     }
+
+    // LISTE DE RESULTS
+    let pagefindQueryResults = document.createElement('ol')
+
+    for (const result of r.results) {
+      let data = await result.data(); //obligé d'await result.data pour bien avoir les résultats de la query
+      console.log('data', data)
+      pagefindQueryResults.innerHTML += 
+        `
+          <li>
+            <a href="${data.url.replace('.html', '')}">${data.meta.title}<a/>
+          </li>
+        `
+    }
+
+
+
+    docFrag.appendChild(pagefindMessage);
+
+    docFrag.appendChild(pagefindQueryResults)
+
+    resultsContainer.appendChild(docFrag);
+
+    
   };
 </script>
 
 <svelte:head>
-  <link href="/pagefind-ui.css" rel="stylesheet" />
   <script src="/pagefind-ui.js"></script>
 </svelte:head>
 
@@ -92,23 +132,28 @@
     on:click|preventDefault={closeDialogWhenClickOutsideTheBox}
     on:keyup|preventDefault={closeDialogWhenClickOutsideTheBox}
     id="search-dialog"
-    class="px-4 py-2"
   >
-    <search class="flex items-center gap-4">
-      <icon class="search-icon | shrink-0"></icon>
-      <form>
-        <label class="sr-only" for="search">Rechercher</label>
-        <input
-          on:keyup={() => handleSearch()}
-          bind:value={query}
-          class="w-full | bg-inherit | outline-none | text-black"
-          type="text"
-          name="search"
-          id="search"
-          placeholder="Rechercher"
-        />
-      </form>
-    </search>
+    <div id="inner-dialog" class="relative">
+      <search
+        id="search-box-open"
+        class="flex items-center gap-4 | border-2 border-slate-400 rounded-md | px-4 py-2 | bg-white"
+      >
+        <icon class="search-icon | shrink-0"></icon>
+        <form>
+          <label class="sr-only" for="search">Rechercher</label>
+          <input
+            on:keyup={() => handleSearch()}
+            bind:value={query}
+            class="w-full | bg-inherit | outline-none | text-black"
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Rechercher"
+          />
+        </form>
+      </search>
+      <div id="results" class="flex flex-col | bg-white | px-4 py-2"></div>
+    </div>
   </dialog>
 </header>
 
@@ -136,10 +181,11 @@
     backdrop-filter: blur(3px);
   }
   #search-dialog {
-    background-color: white;
+    background-color: transparent;
     width: 40dvw;
-    box-shadow: 1px 1px 1px 0px var(--shadow);
-    @apply border-2 border-slate-400 rounded-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+    margin-inline: auto;
+    @apply pt-8;
+    position: fixed;
   }
 
   :global(a:hover) {
@@ -147,4 +193,9 @@
     transition: 0.2s ease-out;
     text-decoration: unset;
   }
+
+  :global(#results ol) {
+    @apply py-4;
+  }
+
 </style>

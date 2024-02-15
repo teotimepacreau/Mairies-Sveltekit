@@ -1,4 +1,4 @@
-button:focus-visible {
+*:focus-visible {
     outline: 3px solid;
-    color: inherit
+    outline-color: inherit;
   }

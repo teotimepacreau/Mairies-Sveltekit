@@ -1,11 +1,7 @@
 <script>
 
   import { onMount } from "svelte";
-
-  // ANIMATE DIALOG ENTRY
-  import { fade } from "svelte/transition";
-  import { searchBtnClicked } from '../store/stores'
-
+  
 
   // SEARCH START
   let closeDialogWhenClickOutsideTheBox;
@@ -106,8 +102,7 @@
     });
   };
 </script>
-{#if searchBtnClicked}
-  <dialog transition:fade
+  <dialog 
     on:click={closeDialogWhenClickOutsideTheBox}
     id="search-dialog"
   >
@@ -132,7 +127,7 @@
       </search>
     </div>
   </dialog>
-{/if}
+
 <style>
   dialog::backdrop {
     backdrop-filter: blur(3px);

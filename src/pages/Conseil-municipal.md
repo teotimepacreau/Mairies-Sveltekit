@@ -1,7 +1,7 @@
 ---
 titre: Conseil municipal
 contenu: >
-  ## Élus municipaux - Mandat 2020 / 2026
+  ## Élus municipaux - Mandat 2020 / 2024
 
 
   Madame le Maire

@@ -1,4 +1,4 @@
-import{s as n}from"./scheduler.s29Zrdcm.js";import{S as i,i as s}from"./index.dXaVhAZh.js";const o={titre:"Conseil municipal",contenu:`## Élus municipaux - Mandat 2020 / 2026
+import{s as n}from"./scheduler.s29Zrdcm.js";import{S as i,i as s}from"./index.dXaVhAZh.js";const o={titre:"Conseil municipal",contenu:`## Élus municipaux - Mandat 2020 / 2024
 
 Madame le Maire
 

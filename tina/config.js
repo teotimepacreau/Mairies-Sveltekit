@@ -66,9 +66,9 @@ export default defineConfig({
         ],
       },
       {
-        name: "page",
-        label: "Page",
-        path: "src/conseil-municipal",
+        name: "pages",
+        label: "Pages",
+        path: "src/pages",
         templates: [
           {
             name: 'conseilmunicipal',

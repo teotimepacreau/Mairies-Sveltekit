@@ -82,15 +82,9 @@ export default defineConfig({
                 required: true,
               },
               {
-                type: "string",
-                name: "desc",
-                label: "Description",
-                required: true,
-              },
-              {
-                type: 'datetime',
-                name: 'date',
-                label: 'Date',
+                type: "rich-text",
+                name: "contenu",
+                label: "Contenu",
                 required: true,
               },
             ],

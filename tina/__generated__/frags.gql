@@ -1,0 +1,17 @@
+fragment ArticleParts on Article {
+  __typename
+  titre
+  desc
+  date
+  image
+  imagealt
+  body
+}
+
+fragment PagesParts on Pages {
+  __typename
+  ... on PagesConseilmunicipal {
+    titre
+    contenu
+  }
+}

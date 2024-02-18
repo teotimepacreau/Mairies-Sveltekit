@@ -8,10 +8,10 @@ import { client } from "@tina/__generated__/client";
 //1. SSG : NECESSAIRE POUR GENERER STATIQUEMENT LES PAGES DE LA ROUTE SLUG
 export async function entries() {
   try {
-    const result = await client.queries.articlesConnection();
+    const result = await client.queries.articleConnection();
     const {
       data: {
-        articlesConnection: { edges },
+        articleConnection: { edges },
       },
     } = result;
     let data = edges.map((article) => {

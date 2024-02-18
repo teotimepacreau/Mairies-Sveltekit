@@ -29,7 +29,7 @@ export async function entries() {
 //2. SLUG : on accède à la fonction native de SvelteKit "load"
 export async function load({ params }){
   try {
-    const post = await import (`../../../articles/${params.slug}.md`)
+    const post = await import (`../../../pages/${params.slug}.md`)
     return {
       content: post.default,//mardown article body
       meta: post.metadata //mardown article frontmatter

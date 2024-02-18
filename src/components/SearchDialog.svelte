@@ -26,9 +26,7 @@
   const handleSearch = async () => {
     const pagefind = await import("/pagefind/pagefind.js"); //appelle l'objet pagefind
 
-    const r = await pagefind.search(query); //tape l'API "search" de Pagefind (on fait remonter la query de l'utilisateur en string)
-
-    console.log(r); //donne un array avec 4 objets parmis lesquels l'objet "results"
+    const r = await pagefind.search(query); //tape l'API "search" de Pagefind (on fait remonter la query de l'utilisateur en string) et donne un array avec 4 objets parmis lesquels l'objet "results"
 
     let numberOfResults = r.results.length;
 
@@ -45,7 +43,6 @@
       pagefindMessage.textContent = `${numberOfResults} résultats pour "${query}"`;
     } else {
       let innerDialog = document.querySelector("#inner-dialog");
-      console.log(innerDialog);
 
       // Create and append resultsContainer only if it doesn't exist
       if (!resultsContainer) {
@@ -75,7 +72,6 @@
 
     for (const result of r.results) {
       let data = await result.data(); //obligé d'await result.data pour bien avoir les résultats de la query
-      console.log("data", data);
       pagefindQueryResults.innerHTML += `
       <li><a class="pagefind-result-list-link" href="${data.url.replace(
         ".html",
@@ -94,7 +90,6 @@
     let allSearchResults = document.querySelectorAll(
       ".pagefind-result-list-link"
     );
-    console.log("allSearchResults", allSearchResults);
     allSearchResults.forEach((result) => {
       result.addEventListener("click", () => {
         result.closest("#search-dialog").close();

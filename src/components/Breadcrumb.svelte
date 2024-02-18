@@ -9,12 +9,10 @@
     pageTitle = document.title;
 
     path = window.location.pathname;
-    console.log(window.location);
     if (path) {
       subfolders = path.split("/").filter(Boolean)
       subfolders.pop();
     }
-    console.log(subfolders);
   });
 </script>
 

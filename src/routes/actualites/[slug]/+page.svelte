@@ -1,7 +1,5 @@
 <script>
-  
-
-  export let data; //attraper le data passé par +page.server.js
+  export let data; //attraper le data passé par +page.js
   import Nav from "@components/Nav.svelte";
   import Breadcrumb from "@components/Breadcrumb.svelte";
 </script>
@@ -26,8 +24,10 @@
       <time class="block | pt-4 | text-slate-500 text-sm">Publié le {new Date(data.meta.date).toLocaleDateString("fr")}</time>
     </header>
     <main class="pt-8">
+      
       <!-- OBLIGE D'IMPORTER LE CORPS DE TEXTE MARKDOWN en svelte:component COMME CA POUR QU'IL S'AFFICHE -->
       <svelte:component this={data.content} />
+
     </main>
   </article>
 </main>

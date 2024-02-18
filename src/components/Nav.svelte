@@ -2,7 +2,7 @@
     <menu>
       <li>
         <span class="eyebrow">MAIRIE</span>
-        <a href="">
+        <a href="/pages/Conseil-municipal">
           <i aria-hidden="true">🏫</i>
           <span>Conseil municipal</span>
         </a>

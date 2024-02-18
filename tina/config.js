@@ -89,31 +89,6 @@ export default defineConfig({
               },
             ],
           },
-          {
-            name: 'informationspratiques',
-            label: 'Informations Pratiques',
-            fields: [
-              {
-                type: "string",
-                name: "titre",
-                label: "Titre",
-                isTitle: true,
-                required: true,
-              },
-              {
-                type: "string",
-                name: "desc",
-                label: "Description",
-                required: true,
-              },
-              {
-                type: 'datetime',
-                name: 'date',
-                label: 'Date',
-                required: true,
-              },
-            ],
-          },
         ]
       },
     ],

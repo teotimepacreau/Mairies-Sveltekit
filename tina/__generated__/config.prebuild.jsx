@@ -58,6 +58,7 @@ var config_default = defineConfig({
             name: "body",
             label: "Corps de texte",
             isBody: true
+            //⚠️ bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
           }
         ]
       },
@@ -81,7 +82,30 @@ var config_default = defineConfig({
                 type: "rich-text",
                 name: "contenu",
                 label: "Contenu",
+                required: true,
+                isBody: true
+                //bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
+              }
+            ]
+          },
+          {
+            name: "informations",
+            label: "Informations",
+            fields: [
+              {
+                type: "string",
+                name: "titre",
+                label: "Titre",
+                isTitle: true,
                 required: true
+              },
+              {
+                type: "rich-text",
+                name: "contenu",
+                label: "Contenu",
+                required: true,
+                isBody: true
+                //bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
               }
             ]
           }

@@ -14,4 +14,8 @@ fragment PagesParts on Pages {
     titre
     contenu
   }
+  ... on PagesInformations {
+    titre
+    contenu
+  }
 }

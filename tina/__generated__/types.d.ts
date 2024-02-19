@@ -180,7 +180,7 @@ export type CollectionDocumentsArgs = {
   folder?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type DocumentNode = Article | PagesConseilmunicipal | Folder;
+export type DocumentNode = Article | PagesConseilmunicipal | PagesInformations | Folder;
 
 export type Article = Node & Document & {
   __typename?: 'Article';
@@ -254,15 +254,30 @@ export type PagesConseilmunicipal = Node & Document & {
   _values: Scalars['JSON']['output'];
 };
 
-export type Pages = PagesConseilmunicipal;
+export type PagesInformations = Node & Document & {
+  __typename?: 'PagesInformations';
+  titre: Scalars['String']['output'];
+  contenu: Scalars['JSON']['output'];
+  id: Scalars['ID']['output'];
+  _sys: SystemInfo;
+  _values: Scalars['JSON']['output'];
+};
+
+export type Pages = PagesConseilmunicipal | PagesInformations;
 
 export type PagesConseilmunicipalFilter = {
   titre?: InputMaybe<StringFilter>;
   contenu?: InputMaybe<RichTextFilter>;
 };
 
+export type PagesInformationsFilter = {
+  titre?: InputMaybe<StringFilter>;
+  contenu?: InputMaybe<RichTextFilter>;
+};
+
 export type PagesFilter = {
   conseilmunicipal?: InputMaybe<PagesConseilmunicipalFilter>;
+  informations?: InputMaybe<PagesInformationsFilter>;
 };
 
 export type PagesConnectionEdges = {
@@ -366,13 +381,23 @@ export type PagesConseilmunicipalMutation = {
   contenu?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type PagesInformationsMutation = {
+  titre?: InputMaybe<Scalars['String']['input']>;
+  contenu?: InputMaybe<Scalars['JSON']['input']>;
+};
+
 export type PagesMutation = {
   conseilmunicipal?: InputMaybe<PagesConseilmunicipalMutation>;
+  informations?: InputMaybe<PagesInformationsMutation>;
 };
 
 export type ArticlePartsFragment = { __typename: 'Article', titre: string, desc: string, date: string, image?: string | null, imagealt?: string | null, body?: any | null };
 
-export type PagesPartsFragment = { __typename: 'PagesConseilmunicipal', titre: string, contenu: any };
+type PagesParts_PagesConseilmunicipal_Fragment = { __typename: 'PagesConseilmunicipal', titre: string, contenu: any };
+
+type PagesParts_PagesInformations_Fragment = { __typename: 'PagesInformations', titre: string, contenu: any };
+
+export type PagesPartsFragment = PagesParts_PagesConseilmunicipal_Fragment | PagesParts_PagesInformations_Fragment;
 
 export type ArticleQueryVariables = Exact<{
   relativePath: Scalars['String']['input'];
@@ -398,7 +423,7 @@ export type PagesQueryVariables = Exact<{
 }>;
 
 
-export type PagesQuery = { __typename?: 'Query', pages: { __typename: 'PagesConseilmunicipal', id: string, titre: string, contenu: any, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type PagesQuery = { __typename?: 'Query', pages: { __typename: 'PagesConseilmunicipal', id: string, titre: string, contenu: any, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | { __typename: 'PagesInformations', id: string, titre: string, contenu: any, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type PagesConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']['input']>;
@@ -410,7 +435,7 @@ export type PagesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PagesConnectionEdges', cursor: string, node?: { __typename: 'PagesConseilmunicipal', id: string, titre: string, contenu: any, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type PagesConnectionQuery = { __typename?: 'Query', pagesConnection: { __typename?: 'PagesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PagesConnectionEdges', cursor: string, node?: { __typename: 'PagesConseilmunicipal', id: string, titre: string, contenu: any, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | { __typename: 'PagesInformations', id: string, titre: string, contenu: any, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export const ArticlePartsFragmentDoc = gql`
     fragment ArticleParts on Article {
@@ -427,6 +452,10 @@ export const PagesPartsFragmentDoc = gql`
     fragment PagesParts on Pages {
   __typename
   ... on PagesConseilmunicipal {
+    titre
+    contenu
+  }
+  ... on PagesInformations {
     titre
     contenu
   }
@@ -598,7 +627,7 @@ export const ExperimentalGetTinaClient = () =>
   getSdk(
     generateRequester(
       createClient({
-        url: "https://content.tinajs.io/1.4/content/b0376671-e258-4c36-8fa7-4ca68387c7a8/github/tina",
+        url: "http://localhost:4001/graphql",
         queries,
       })
     )

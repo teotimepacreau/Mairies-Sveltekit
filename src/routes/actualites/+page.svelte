@@ -9,9 +9,8 @@
 <svelte:head>
   <title>Actualités</title>
 </svelte:head>
-
 <Nav />
-<main class="p-8 | w-full">
+<main class="px-14 py-6 | w-full">
   <Breadcrumb />
   <section class="mt-10">
     <h1 class="text-4xl font-bold">Actualités</h1>

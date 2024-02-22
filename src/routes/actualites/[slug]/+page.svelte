@@ -12,8 +12,8 @@
 </svelte:head>
 
 <Nav />
-<main id="blog-post-container" class="p-8 | w-full">
-  <Breadcrumb pageTitle={data.meta.titre} />
+<main class="px-14 py-6 | w-full">
+  <Breadcrumb />
   <article class="pt-8">
     <!-- Title -->
     <header>
@@ -31,7 +31,6 @@
     </main>
   </article>
 </main>
-
 <style>
   #hero-img-container {
     display: flex;

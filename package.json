@@ -4,9 +4,9 @@
 	"private": true,
 	"scripts": {
 		"dev": "tinacms dev -c \"vite dev\"",
-		"build": "tinacms build && vite build",
+		"build": "tinacms build && vite build && pagefind --site build",
 		"preview": "tinacms build && vite preview",
-		"postbuildtoseepagefind": "vite build && pagefind --site build --serve"
+		"postbuildservepagefind": "vite build && pagefind --site build --serve"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",

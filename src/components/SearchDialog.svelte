@@ -27,7 +27,6 @@
     const pagefind = await import("/pagefind/pagefind.js"); //appelle l'objet pagefind
 
     const r = await pagefind.search(query); //tape l'API "search" de Pagefind (on fait remonter la query de l'utilisateur en string) et donne un array avec 4 objets parmis lesquels l'objet "results"
-
     let numberOfResults = r.results.length;
 
     let docFrag = document.createDocumentFragment();
@@ -72,6 +71,7 @@
 
     for (const result of r.results) {
       let data = await result.data(); //obligé d'await result.data pour bien avoir les résultats de la query
+      console.log('data', data)
       pagefindQueryResults.innerHTML += `
       <li><a class="pagefind-result-list-link" href="${data.url.replace(
         ".html",

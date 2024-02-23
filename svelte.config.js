@@ -33,9 +33,7 @@ const config = {
 			'@static': path.resolve('./static'),
 			'@pagefind': path.resolve('./static/pagefind')
 		},
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
+
 		adapter:  adapter({ fallback : '404.html' }, { pages: "build" }),
 	},
 	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)]

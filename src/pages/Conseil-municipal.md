@@ -5,17 +5,17 @@ _template: conseilmunicipal
 
 ## Élus municipaux - Mandat 2020 / 2026
 
-Madame le Maire
+**Madame le Maire**
 
 * Dominique LENFANT
 
-Adjoints
+**Adjoints**
 
 * Philippe De HOUX
 * Martine GREZE
 * Didier BAUDET
 
-Conseillers municipaux
+**Conseillers municipaux**
 
 * Pierre AMARÉ
 * Gérard BLANC

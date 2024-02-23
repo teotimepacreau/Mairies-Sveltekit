@@ -1,1 +1,0 @@
-import{s as e}from"./scheduler.s29Zrdcm.js";import{S as s,i as a}from"./index.dXaVhAZh.js";const n={titre:"Titre 5",desc:"desc 5",date:"2024-02-17T23:00:00.000Z"};class l extends s{constructor(t){super(),a(this,t,null,null,e,{})}}export{l as default,n as metadata};

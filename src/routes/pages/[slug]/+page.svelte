@@ -14,7 +14,7 @@
 <Nav />
 <main class="px-14 py-6 | w-full">
   <Breadcrumb />
-  <section class="page-content | mt-10">
+  <section data-pagefind-body class="page-content | mt-10">
     <header>
       <h1 class="text-4xl font-bold">{data.meta.titre}</h1>
       <hr>
@@ -48,5 +48,11 @@
 
   :global(.page-content ul){
     @apply my-3
+  }
+
+  :global(.page-content a) {
+    @apply my-3;
+    display: inline-block;
+    text-decoration: underline;
   }
 </style>

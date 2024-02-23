@@ -14,7 +14,7 @@
 <Nav />
 <main class="px-14 py-6 | w-full">
   <Breadcrumb />
-  <article class="pt-8">
+  <article data-pagefind-body class="pt-8">
     <!-- Title -->
     <header>
       <div id="hero-img-container">

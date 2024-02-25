@@ -11,7 +11,6 @@ emoji: "\U0001F4C4"
 
 ## Contact
 
-* Email : [accueil@mairie-vue.fr](accueil@mairie-vue.fr "accueil@mairie-vue.fr")
 * Téléphone : 02 40 64 28 34
 
 ## Accueil public

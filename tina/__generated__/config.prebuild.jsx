@@ -64,48 +64,49 @@ var config_default = defineConfig({
         name: "pages",
         label: "Pages",
         path: "src/pages",
-        templates: [
+        fields: [
           {
-            name: "conseilmunicipal",
-            label: "Conseil Municipal",
-            fields: [
+            type: "string",
+            name: "titre",
+            label: "Titre",
+            isTitle: true,
+            required: true
+          },
+          {
+            type: "string",
+            label: "Cat\xE9gorie",
+            name: "categorie",
+            list: true,
+            required: true,
+            options: [
               {
-                type: "string",
-                name: "titre",
-                label: "Titre",
-                isTitle: true,
-                required: true
+                label: "Mairie",
+                value: "mairie"
               },
               {
-                type: "rich-text",
-                name: "contenu",
-                label: "Contenu",
-                required: true,
-                isBody: true
-                //bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
+                label: "Vie Locale",
+                value: "vielocale"
+              },
+              {
+                label: "D\xE9marches",
+                value: "demarches"
               }
             ]
           },
           {
-            name: "informations",
-            label: "Informations",
-            fields: [
-              {
-                type: "string",
-                name: "titre",
-                label: "Titre",
-                isTitle: true,
-                required: true
-              },
-              {
-                type: "rich-text",
-                name: "contenu",
-                label: "Contenu",
-                required: true,
-                isBody: true
-                //bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
-              }
-            ]
+            type: "string",
+            label: "Ic\xF4ne",
+            name: "emoji",
+            description: "Emoji qui servira d'ic\xF4ne dans le menu de navigation",
+            required: true
+          },
+          {
+            type: "rich-text",
+            name: "contenu",
+            label: "Contenu",
+            required: true,
+            isBody: true
+            //bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
           }
         ]
       }

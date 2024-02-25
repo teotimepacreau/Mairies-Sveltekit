@@ -87,7 +87,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Article | PagesConseilmunicipal | PagesInformations | Folder
+union DocumentNode = Article | Pages | Folder
 
 type Article implements Node & Document {
   titre: String!
@@ -149,37 +149,21 @@ type ArticleConnection implements Connection {
   edges: [ArticleConnectionEdges]
 }
 
-type PagesConseilmunicipal implements Node & Document {
+type Pages implements Node & Document {
   titre: String!
+  categorie: [String!]!
+  emoji: String!
   contenu: JSON!
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-type PagesInformations implements Node & Document {
-  titre: String!
-  contenu: JSON!
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-union Pages = PagesConseilmunicipal | PagesInformations
-
-input PagesConseilmunicipalFilter {
-  titre: StringFilter
-  contenu: RichTextFilter
-}
-
-input PagesInformationsFilter {
-  titre: StringFilter
-  contenu: RichTextFilter
 }
 
 input PagesFilter {
-  conseilmunicipal: PagesConseilmunicipalFilter
-  informations: PagesInformationsFilter
+  titre: StringFilter
+  categorie: StringFilter
+  emoji: StringFilter
+  contenu: RichTextFilter
 }
 
 type PagesConnectionEdges {
@@ -224,19 +208,11 @@ input ArticleMutation {
   body: JSON
 }
 
-input PagesConseilmunicipalMutation {
-  titre: String
-  contenu: JSON
-}
-
-input PagesInformationsMutation {
-  titre: String
-  contenu: JSON
-}
-
 input PagesMutation {
-  conseilmunicipal: PagesConseilmunicipalMutation
-  informations: PagesInformationsMutation
+  titre: String
+  categorie: [String]
+  emoji: String
+  contenu: JSON
 }
 
 schema {

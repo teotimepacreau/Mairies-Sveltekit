@@ -1,6 +1,5 @@
 import { defineConfig } from "tinacms";
 
-
 export default defineConfig({
   branch: "tina",
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID,
@@ -13,7 +12,7 @@ export default defineConfig({
   media: {
     tina: {
       mediaRoot: "",
-      
+
       publicFolder: "static",
     },
   },
@@ -39,9 +38,9 @@ export default defineConfig({
             required: true,
           },
           {
-            type: 'datetime',
-            name: 'date',
-            label: 'Date',
+            type: "datetime",
+            name: "date",
+            label: "Date",
             required: true,
           },
           {
@@ -52,13 +51,13 @@ export default defineConfig({
           {
             type: "string",
             name: "imagealt",
-            label: "Description de l'image"
+            label: "Description de l'image",
           },
           {
             type: "rich-text",
             name: "body",
             label: "Corps de texte",
-            isBody: true,//⚠️ bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
+            isBody: true, //⚠️ bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
           },
         ],
       },
@@ -66,48 +65,50 @@ export default defineConfig({
         name: "pages",
         label: "Pages",
         path: "src/pages",
-        templates: [
+        fields: [
           {
-            name: 'conseilmunicipal',
-            label: 'Conseil Municipal',
-            fields: [
+            type: "string",
+            name: "titre",
+            label: "Titre",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            label: "Catégorie",
+            name: "categorie",
+            list: true,
+            required: true,
+            options: [
               {
-                type: "string",
-                name: "titre",
-                label: "Titre",
-                isTitle: true,
-                required: true,
+                label: "Mairie",
+                value: "mairie",
               },
               {
-                type: "rich-text",
-                name: "contenu",
-                label: "Contenu",
-                required: true,
-                isBody: true,//bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
+                label: "Vie Locale",
+                value: "vielocale",
               },
+              {
+                label: "Démarches",
+                value: "demarches",
+              }
             ],
           },
           {
-            name: 'informations',
-            label: 'Informations',
-            fields: [
-              {
-                type: "string",
-                name: "titre",
-                label: "Titre",
-                isTitle: true,
-                required: true,
-              },
-              {
-                type: "rich-text",
-                name: "contenu",
-                label: "Contenu",
-                required: true,
-                isBody: true,//bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
-              },
-            ],
+            type: "string",
+            label: "Icône",
+            name: "emoji",
+            description: "Emoji qui servira d'icône dans le menu de navigation",
+            required: true,
           },
-        ]
+          {
+            type: "rich-text",
+            name: "contenu",
+            label: "Contenu",
+            required: true,
+            isBody: true, //bien penser à mettre isBody: true au champ dont on souhaite qu’il souhaite render non pas en frontmatter mais bien en corps de texte markdown
+          },
+        ],
       },
     ],
   },

@@ -19,14 +19,10 @@ export const ArticlePartsFragmentDoc = gql`
 export const PagesPartsFragmentDoc = gql`
     fragment PagesParts on Pages {
   __typename
-  ... on PagesConseilmunicipal {
-    titre
-    contenu
-  }
-  ... on PagesInformations {
-    titre
-    contenu
-  }
+  titre
+  categorie
+  emoji
+  contenu
 }
     `;
 export const ArticleDocument = gql`

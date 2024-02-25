@@ -1,6 +1,8 @@
 ---
 titre: Conseil municipal
-_template: conseilmunicipal
+categorie:
+  - mairie
+emoji: "\U0001F3EB"
 ---
 
 ## Élus municipaux - Mandat 2020 / 2026

@@ -6,7 +6,7 @@
           <i aria-hidden="true">🏫</i>
           <span>Conseil municipal</span>
         </a>
-        <a href=""
+        <a href="/pages/Informations"
           ><i aria-hidden="true">📄</i>
           <span>Informations pratiques</span>
         </a>

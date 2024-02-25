@@ -11,7 +11,7 @@
         articleConnection: { edges },
       },
     } = result;
-    let arrayOfArticles = edges;
+    arrayOfArticles = edges;
     return arrayOfArticles
 
   }catch(e){

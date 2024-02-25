@@ -85,7 +85,7 @@ var config_default = defineConfig({
               },
               {
                 label: "Vie Locale",
-                value: "vielocale"
+                value: "vie locale"
               },
               {
                 label: "D\xE9marches",

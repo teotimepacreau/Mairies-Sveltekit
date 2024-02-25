@@ -86,7 +86,7 @@ export default defineConfig({
               },
               {
                 label: "Vie Locale",
-                value: "vielocale",
+                value: "vie locale",
               },
               {
                 label: "Démarches",

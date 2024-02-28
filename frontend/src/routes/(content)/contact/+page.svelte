@@ -1,15 +1,15 @@
 <script>
   import { error } from "@sveltejs/kit";
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+
+  const handleSubmit = async () => {
     let message = {
-      nom: document.querySelector("#nom").value.trim(),
-      prenom: document.querySelector("#prenom").value.trim(),
-      messagecontent: document.querySelector("#message").value.trim(),
+      nom: document.getElementById("nom").value.trim(),
+      prenom: document.getElementById("prenom").value.trim(),
+      messagecontent: document.getElementById("message").value.trim(),
     };
     try {
-      await fetch("/api", {
+      await fetch("http://localhost:3000/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -27,7 +27,7 @@
 
 <section class="mt-10">
   <h1 class="text-4xl font-bold">Contact</h1>
-  <form on:submit={() => handleSubmit()} method="post" class="mt-6">
+  <form on:submit|preventDefault={() => handleSubmit()} method="post" class="mt-6">
     <div class="flexer | flex flex-col">
       <label for="nom">Nom</label>
       <input type="text" name="nom" id="nom" />

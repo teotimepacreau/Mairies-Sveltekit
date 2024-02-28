@@ -1,1 +1,0 @@
-import{H as t}from"./control.pJ1mnnAb.js";const s=(o,e)=>{const r=o[e];return r?typeof r=="function"?r():Promise.resolve(r):new Promise((i,n)=>{(typeof queueMicrotask=="function"?queueMicrotask:setTimeout)(n.bind(null,new Error("Unknown variable dynamic import: "+e)))})};function a(o,e){throw new t(o,e)}new TextEncoder;export{s as _,a as e};

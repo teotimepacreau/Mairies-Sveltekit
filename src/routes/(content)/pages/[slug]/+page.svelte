@@ -1,9 +1,5 @@
 <script>
   export let data; //attraper le data passé par +page.js
-
-  import Nav from "@components/Nav.svelte";
-
-  import Breadcrumb from "@components/Breadcrumb.svelte";
 </script>
 
 <svelte:head>
@@ -11,10 +7,7 @@
   <meta property="og:title" content={data.meta.titre} />
 </svelte:head>
 
-<Nav />
-<main class="px-14 py-6 | w-full">
-  <Breadcrumb />
-  <section class="page-content | mt-10">
+<section class="page-content | mt-10">
     <header>
       <h1 class="text-4xl font-bold">{data.meta.titre}</h1>
       <hr>
@@ -23,7 +16,6 @@
       <svelte:component this={data.content} />
     <article/>
   </section>
-</main>
 
 <style>
   .page-content > header > hr {

@@ -1,7 +1,5 @@
 <script>
   export let data; //attraper le data passé par +page.js
-  import Nav from "@components/Nav.svelte";
-  import Breadcrumb from "@components/Breadcrumb.svelte";
 </script>
 
 <svelte:head>
@@ -11,9 +9,6 @@
   <meta property="og:description" content={data.meta.desc} />
 </svelte:head>
 
-<Nav />
-<main class="px-14 py-6 | w-full">
-  <Breadcrumb />
   <article data-pagefind-body class="pt-8">
     <!-- Title -->
     <header>
@@ -30,7 +25,6 @@
 
     </main>
   </article>
-</main>
 <style>
   #hero-img-container {
     display: flex;

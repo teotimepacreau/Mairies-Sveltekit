@@ -21,7 +21,7 @@
 
   import SearchButton from "@components/SearchButton.svelte";
   import SearchDialog from "@components/SearchDialog.svelte";
-  
+  import Nav from "@components/Nav.svelte";
   
 </script>
 
@@ -55,6 +55,7 @@
 </header>
 
 <div class="content-wrapper | px-8 pb-8 | mx-auto | flex">
+  <Nav /> 
   <slot />
 </div>
 

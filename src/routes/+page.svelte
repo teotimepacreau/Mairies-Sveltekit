@@ -1,9 +1,7 @@
 <script>
-  import Nav from "@components/Nav.svelte";
   import ListOfItemActu from "@components/ListOfItemActu.svelte";
 </script>
 
-<Nav />
 <main style="width: inherit;">
   <header>
     <img

@@ -20,6 +20,8 @@ app.post("/api", async (req, res) => {
     let receivedForm = {
       nom: req.body.nom,
       prenom: req.body.prenom,
+      telephone: req.body.telephone,
+      email: req.body.email,
       message: req.body.messagecontent,
     };
     console.log(receivedForm);

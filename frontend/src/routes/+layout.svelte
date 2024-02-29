@@ -14,10 +14,13 @@
   });
   // VIEW TRANSITIONS END
 
-  // COMPONENTS
+  // STYLESHEETS
   import "@style/focus.css";
+  import "@style/notif.css";
   import "@style/reset.css";
   import "@style/tailwind.css";
+
+    // COMPONENTS
 
   import SearchButton from "@components/SearchButton.svelte";
   import SearchDialog from "@components/SearchDialog.svelte";

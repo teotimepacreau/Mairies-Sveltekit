@@ -1,0 +1,65 @@
+:root {
+  --darkbg: oklch(12% 0.05 120);
+  --primary: oklch(42% 0.19 120);
+  --onprimary: oklch(99% 0 120);
+  --primaryicon: oklch(42% 0.19 120);
+  --primaryshadow: oklch(25% 0 120 / 35%);
+  --secondary: oklch(42% 0.19 80);
+  --tertiary: oklch(42% 0.19 240);
+  --fourth: oklch(42% 0.19 320);
+  --grey: oklch(50% 0.09 120 / 80%);
+  --white70opacity: oklch(100% 0 120 / 70%);
+  --white: oklch(100% 0 120);
+  --orange: oklch(90% 0.37 85 / 85%);
+  --orangeshadow:oklch(80% 0.3 85 / 55%);
+  --yellow: oklch(87.82% 0.1933 115.55);
+  --green: oklch(50% 0.2 140);
+  --focus: oklch(70% 0.19 80);
+  --rythme: 1rem;
+}
+
+/* NOTIF TO CONFIRM THAT USER HAS SUCCESSFULLY SENT FORM */
+
+.notif {
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.5ch;
+    position: absolute;
+    right: calc(3*var(--rythme));
+    bottom: calc(3*var(--rythme));
+    padding: calc(0.5*var(--rythme));
+    border-radius: 0.3rem;
+    animation: fade 0.6s ease-out;
+    box-shadow: 1px 1px 1px 0px var(--primaryshadow);
+    transition: all 0.3s ease-out;
+    opacity: 0.95;
+  }
+  
+  .subscribed-successfully {
+    background-color: var(--green);
+    color: var(--white);
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+      translate: 100px;
+      transform: scale(0.1);
+      filter: brightness(1.5);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .ph {
+    color: white;
+    font-size: 1ch;
+  }
+  
+  .email-already-exists {
+    background-color: var(--orange);
+    color: var(--darkbg);
+  }

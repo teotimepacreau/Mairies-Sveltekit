@@ -53,6 +53,13 @@
         {/each}
       </li>
     {/each}
+    <li>
+      <span class="eyebrow">Contact</span>
+        <a href="/contact">
+          <i aria-hidden="true">✉️</i>
+          <span>Formulaire de contact</span>
+        </a>
+    </li>
   </menu>
 </nav>
 

@@ -1,6 +1,10 @@
 <script>
   import { error } from "@sveltejs/kit";
+  import { fade } from "svelte/transition";
 
+  import { CheckCircle } from "phosphor-svelte"
+
+  let displayFormSentNotif = false;
 
   const handleSubmit = async () => {
     let message = {
@@ -18,23 +22,17 @@
         },
         body: JSON.stringify(message),
       });
-      if(response.ok){
-        const inputElements = document.querySelectorAll("input")
-        inputElements.forEach((element)=> element.value="")
-        let textArea = document.querySelector("textarea")
-        textArea.value=""
-        const notificationSubscribePositive = document.createElement('div')
-        notificationSubscribePositive.innerHTML = `
-        <icon class="ph ph-check-circle"></icon>
-        <span>Formulaire de contact envoyé</span>
-        `
-        notificationSubscribePositive.classList.add('notif', 'subscribed-successfully')
-        notificationSubscribePositive.setAttribute("role", "alert")
-        const container = document.querySelector('body')
-        container.appendChild(notificationSubscribePositive)
+      if (response.ok) {
+        const inputElements = document.querySelectorAll("input");
+        inputElements.forEach((element) => (element.value = ""));
+        let textArea = document.querySelector("textarea");
+        textArea.value = "";
+
+        // TRIGGER FADE-IN FOR TOAST NOTIF
+        displayFormSentNotif = true;
 
         setTimeout(()=>{
-            container.removeChild(notificationSubscribePositive)
+            document.querySelector('.form-sent-success').remove()
         }, 4000)
       }
     } catch (e) {
@@ -46,14 +44,13 @@
   };
 </script>
 
-<svelte:head>
-  <title>Contact</title>
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-</svelte:head>
-
 <section class="mt-10">
   <h1 class="text-4xl font-bold">Contact</h1>
-  <form on:submit|preventDefault={() => handleSubmit()} method="post" class="mt-6">
+  <form
+    on:submit|preventDefault={() => handleSubmit()}
+    method="post"
+    class="mt-6"
+  >
     <div class="flexer | flex flex-col">
       <label for="nom">Nom</label>
       <input required type="text" name="nom" id="nom" />
@@ -64,11 +61,19 @@
       <label for="telephone">Téléphone</label>
       <input required type="tel" name="telephone" id="telephone" />
       <label for="message">Votre message</label>
-      <textarea required name="message" id="message" cols="30" rows="4"></textarea>
+      <textarea required name="message" id="message" cols="30" rows="4"
+      ></textarea>
     </div>
     <button type="submit">Envoyer</button>
   </form>
 </section>
+
+{#if displayFormSentNotif}
+  <div transition:fade={{delay: 0, duration: 300}} role="alert" class="notif form-sent-success">
+    <CheckCircle />
+    <span>Formulaire de contact envoyé</span>
+  </div>
+{/if}
 
 <style>
   section {

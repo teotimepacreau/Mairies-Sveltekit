@@ -73,7 +73,7 @@
 
 {#if displayFormSentNotif}
   <div transition:fade={{delay: 0, duration: 300}} role="alert" class="toast-notif form-sent-success">
-    <CheckCircle />
+    <CheckCircle size="1.5rem" />
     <span>Formulaire de contact envoyé</span>
   </div>
 {/if}

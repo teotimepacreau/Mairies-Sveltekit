@@ -2,9 +2,11 @@
   import { error } from "@sveltejs/kit";
   import { fade } from "svelte/transition";
 
-  import { CheckCircle } from "phosphor-svelte"
+  import { CheckCircle } from "phosphor-svelte";
+  import { XCircle } from "phosphor-svelte"
 
-  let displayFormSentNotif = false;
+  let displayFormSentNotif = false
+  let displayErrorFormNotArrivedServer = false
 
   const handleSubmit = async () => {
     let message = {
@@ -36,6 +38,7 @@
         }, 4000)
       }
     } catch (e) {
+      displayErrorFormNotArrivedServer = true
       throw error(
         500,
         "Erreur côté serveur suite à la soumission de votre formulaire"
@@ -69,9 +72,16 @@
 </section>
 
 {#if displayFormSentNotif}
-  <div transition:fade={{delay: 0, duration: 300}} role="alert" class="notif form-sent-success">
+  <div transition:fade={{delay: 0, duration: 300}} role="alert" class="toast-notif form-sent-success">
     <CheckCircle />
     <span>Formulaire de contact envoyé</span>
+  </div>
+{/if}
+
+{#if displayErrorFormNotArrivedServer}
+  <div transition:fade={{delay: 0, duration: 300}} role="alert" class="toast-notif form-sent-error">
+    <XCircle size="1.5rem" />
+    <span>Erreur de traitement côté serveur suite à la soumission de votre formulaire</span>
   </div>
 {/if}
 
@@ -92,7 +102,7 @@
     @apply border-b-2;
   }
   button[type="submit"] {
-    @apply mt-4 bg-slate-800 px-3 py-0.5 text-slate-50 rounded-sm;
+    @apply mt-4 bg-slate-800 px-3 py-1 text-slate-50 rounded-sm font-semibold;
   }
   input:focus-within,
   textarea:focus-within {

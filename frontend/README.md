@@ -1,38 +1,15 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# "Site de Mairie" : my fullstack project with SvelteKit frontend + Fastify backend
 
-## Creating a project
 
-If you're seeing this, you've probably already done this step. Congrats!
+# 🛠️
+Frontend : HTML, CSS, Tailwind, JS, SvelteKit
+Backend: TinaCMS, Pagefind, Fastify
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+# What I learned :
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+# In-depth details of the project :
+1. 
+2.
+3. Contact form : . Toast notification confirms if form is successully sent and received by the server. If form is not successfully received server-side, a toast notification informs the user.

@@ -20,11 +20,11 @@
 
 /* NOTIF TO CONFIRM THAT USER HAS SUCCESSFULLY SENT FORM */
 
-.notif {
+.toast-notif {
     font-weight: 400;
     display: flex;
     align-items: center;
-    gap: 0.5ch;
+    gap: 1ch;
     position: absolute;
     right: calc(3*var(--rythme));
     bottom: calc(3*var(--rythme));
@@ -32,11 +32,23 @@
     border-radius: .3rem;
     box-shadow: 1px 1px 1px 0px var(--primaryshadow);
     opacity: .9;
+    max-width: 20dvw;
   }
+
+  .toast-notif svg {
+    flex-shrink: 0;
+    flex-grow: 1;
+  }
+
   
   .form-sent-success {
     background-color: var(--green);
     color: var(--white);
+  }
+
+  .form-sent-error {
+    background-color: var(--orange);
+    color: var(--darkbg);
   }
   
   @keyframes fade {
@@ -57,7 +69,3 @@
     font-size: 1rem;
   }
   
-  .email-already-exists {
-    background-color: var(--orange);
-    color: var(--darkbg);
-  }

@@ -2,6 +2,9 @@ import fastify from "fastify";
 import cors from "@fastify/cors";
 import sgMail from "@sendgrid/mail"
 
+// SECRET ENREGISTRE VIA NODE20.0 5node package.json : --env-file=.env
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 const app = fastify();
 
 // CORS
@@ -24,9 +27,28 @@ app.post("/api", async (req, res) => {
       prenom: req.body.prenom,
       telephone: req.body.telephone,
       email: req.body.email,
-      message: req.body.messagecontent,
+      messagecontent: req.body.messagecontent,
     };
     console.log(receivedForm);
+
+    let msg = {
+      to: 'teotime.pac@outlook.fr',
+      from: process.env.FROM_EMAIL,
+      subject: 'Demande de contact - site mairie',
+      html: `<strong>${receivedForm.prenom}</strong></br><strong>${receivedForm.nom}</strong></br><span>${receivedForm.email}</span></br><span>${receivedForm.telephone}</span></br><p>${receivedForm.messagecontent}</p>`,
+    };
+
+    (async () => {
+      try {
+        await sgMail.send(msg);
+      } catch (error) {
+        console.error(error);
+    
+        if (error.response) {
+          console.error(error.response.body)
+        }
+      }
+    })();
 
     res
       .status(201)

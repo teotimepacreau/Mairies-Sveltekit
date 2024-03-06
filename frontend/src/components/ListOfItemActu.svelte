@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+
   import { client } from "@tina/__generated__/client";
 
   let arrayOfArticles = []
@@ -27,10 +29,26 @@
       return new Date(b.node.date) - new Date(a.node.date)
     })
   }
+
+  // attraper le nb d'articles pour la pagination
+  import {nbArticles}  from '../store/stores.js'
+  onMount(()=>{
+    async function getNbOfArticles() {
+    arrayOfArticles = await fillArrayOfArticles()
+    let arrayLength = arrayOfArticles.length
+    console.log('arrayLength from List', arrayLength)
+    nbArticles.update(value=> value = arrayLength);
+  }
+  getNbOfArticles();
+  })
+
+
   // Use a reactive statement to trigger the sorting when arrayOfArticles changes
   $: {
     orderArticlesByDate();
   }
+
+  
 </script>
 
   <div class="article-list">

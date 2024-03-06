@@ -32,7 +32,10 @@ const config = {
 			'@components': path.resolve('./src/components'),
 			'@style': path.resolve('./src/style'),
 			'@static': path.resolve('./static'),
-			'@pagefind': path.resolve('./static/pagefind')
+			'@pagefind': path.resolve('./static/pagefind'),
+			'@sveltecomponents': path.resolve('./src/lib/components/ui'),
+			'@svelteutils': path.resolve('./src/lib'),
+			'@store': path.resolve('./src/store')
 		},
 
 		adapter:  adapter({ fallback : '404.html' }, { pages: "build" }),

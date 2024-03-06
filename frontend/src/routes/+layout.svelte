@@ -20,6 +20,9 @@
   import "@style/reset.css";
   import "@style/tailwind.css";
 
+  // SHADCN-SVELTE
+  import "@style/global.css"
+
     // COMPONENTS
 
   import SearchButton from "@components/SearchButton.svelte";

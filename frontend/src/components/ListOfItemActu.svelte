@@ -43,16 +43,17 @@
     console.log('subset',subset)
     return subset
   }
-  $: {
-    getSubsetOfArticlesForPagination()
-  }
+
   let handleClickOnPagination
-onMount(()=>{
-  handleClickOnPagination = (event)=>{
-    // currentPage = e.target.innerText
-    console.log('hello')
-    console.log(event.target.value)
-  }
+onMount(async ()=>{
+  await getSubsetOfArticlesForPagination()
+  let allPaginationButtons = document.querySelectorAll('[data-melt-pagination-page]')
+  console.log(allPaginationButtons)
+  allPaginationButtons.forEach((button)=>{
+    button.addEventListener('click', ()=>{
+      console.log(button.dataset.value)
+    })
+  })
 })
 
 
@@ -101,7 +102,7 @@ onMount(()=>{
           </Pagination.Item>
         {:else}
           <Pagination.Item isVisible={currentPage == page.value}>
-            <Pagination.Link on:click={()=> handleClickOnPagination()} {page} isActive={currentPage == page.value}>
+            <Pagination.Link {page} isActive={currentPage == page.value}>
               {page.value}
             </Pagination.Link>
           </Pagination.Item>

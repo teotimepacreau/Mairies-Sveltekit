@@ -1,5 +1,5 @@
 <script>
-  import ListOfItemActu from "@components/ListOfItemActu.svelte";
+  import ActuItemsListAndPagination from "@components/ActuItemsListAndPagination.svelte";
 </script>
 
 <main style="width: inherit;">
@@ -22,7 +22,7 @@
     <hr class="mt-10" />
     <section class="mt-10">
       <h2 id="actualites-title" class="text-xl font-bold"><a href="/actualites">Actualités</a></h2>
-      <ListOfItemActu />
+      <ActuItemsListAndPagination />
     </section>
   </main>
 </main>

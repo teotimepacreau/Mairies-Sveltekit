@@ -1,5 +1,5 @@
 <script>
-  import ListOfItemActu from "@components/ListOfItemActu.svelte";
+  import ActuItemsListAndPagination from "@components/ActuItemsListAndPagination.svelte";
 </script>
 
 <svelte:head>
@@ -8,5 +8,5 @@
 
 <section class="mt-10">
   <h1 class="text-4xl font-bold">Actualités</h1>
-  <ListOfItemActu />
+  <ActuItemsListAndPagination />
 </section>

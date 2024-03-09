@@ -21,16 +21,13 @@
   import "@style/tailwind.css";
 
   // SHADCN-SVELTE
-  import "@style/global.css"
+  import "@style/global.css";
 
-    // COMPONENTS
-
+  // COMPONENTS
   import SearchButton from "@components/SearchButton.svelte";
   import SearchDialog from "@components/SearchDialog.svelte";
   import Nav from "@components/Nav.svelte";
-  
 </script>
-
 
 <header class="px-8 py-4 border-b-2 | flex justify-between gap-2">
   <div
@@ -61,7 +58,7 @@
 </header>
 
 <div class="content-wrapper | px-8 pb-8 | mx-auto | flex">
-  <Nav /> 
+  <Nav />
   <slot />
 </div>
 
@@ -72,5 +69,4 @@
   .content-wrapper > * {
     flex: 1;
   }
-  
 </style>

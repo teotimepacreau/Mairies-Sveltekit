@@ -72,6 +72,11 @@
     flex-direction: column;
   }
 
+  a:hover {
+    @apply bg-slate-100;
+    transition: 0.2s ease-out;
+  }
+
   a > span {
     @apply text-xs text-slate-500 font-semibold;
   }

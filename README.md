@@ -152,7 +152,7 @@ schema: {
 ```
 
 Result is having a dedicated admin page :
-![Admin page](/readmevideos/tinacms.mp4)
+![Admin page](./readmevideos/tinacms.mp4)
 
 2. Querying the generated GraphQL API in Svelte files in order to get data
 ```
